@@ -14,3 +14,8 @@ Song.create(title: "Title 2", artist: "Artist 2", playlist_id: 1)
 Song.create(title: "Title 3", artist: "Artist 3", playlist_id: 2)
 Song.create(title: "Title 4", artist: "Artist 4", playlist_id: 2)
 
+Review.create(rating: "1", text: "Review 1", playlist_id: 1)
+Review.create(rating: "2", text: "Review 2", playlist_id: 1)
+Review.create(rating: "3", text: "Review 3", playlist_id: 2)
+Review.create(rating: "4", text: "Review 4", playlist_id: 2)
+
