@@ -15,6 +15,7 @@ class SongsController < ApplicationController
 
   # POST /songs
   def create
+    
     @song = Song.new(song_params)
 
     if @song.save
@@ -46,6 +47,6 @@ class SongsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def song_params
-      params.require(:song).permit(:title, :artist)
+      params.require(:song).permit(:title, :artist, :playlist_id)
     end
 end
