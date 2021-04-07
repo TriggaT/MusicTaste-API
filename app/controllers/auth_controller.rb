@@ -11,6 +11,14 @@ class AuthController < ApplicationController
         render json: {failure: "Your username or password is incorrect"}
       end  
   end
+
+  def auto_login
+        if session_user
+            render json: session_user
+        else 
+            render json: {errors: "No user is logged in. Make sure you're logged in."}
+        end  
+  end 
   
   
 
