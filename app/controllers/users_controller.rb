@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     if user.valid? 
       payload = {user_id: user.id}
       token = encode_token(payload)
+      binding.pry
       render json: {user: user, jwt: token} , status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
