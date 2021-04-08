@@ -16,7 +16,10 @@ class Review < ApplicationRecord
             user: {
                 id: self.user.id,
                 username: self.user.username
-            }           
+            } 
+            playlist: {
+                id: self.playlist.id
+            }          
         }
     end 
 end
