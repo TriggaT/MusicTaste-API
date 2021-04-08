@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  wrap_parameters format: [:json]
+  wrap_parameters :user, include: [:username, :password]
 
   # GET /users
   def index
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  def create
+  def create 
     @user = User.create(user_params)
 
     if @user.valid? 
@@ -48,6 +50,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :password_digest)
+      params.require(:user).permit(:username, :password)
     end
 end
