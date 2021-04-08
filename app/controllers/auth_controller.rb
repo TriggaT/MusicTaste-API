@@ -1,17 +1,19 @@
 class AuthController < ApplicationController
-    before_action :require_login
+    before_action :require_login, only: [:auto_login]
 
    
     
     def login
-      user = User.find_by(username: params[:username])
-      if user && user.authenticate(params[:user][:password])
-        payload = {user_id: user.id}
-        token = encode_token(payload)
-        render json: {user: user, jwt: token, success: "Welcome back, #{user.username}"}
-      else
-        render json: {failure: "Your username or password is incorrect"}
-      end  
+        user = User.find_by(username: params[:username])
+        
+        if user && user.authenticate(params[:password_digest])
+            binding.pry 
+            payload = {user_id: user.id}
+            token = encode_token(payload)
+            render json: {user: user, jwt: token, success: "Welcome back, #{user.username}"}
+        else
+            render json: {failure: "Your username or password is incorrect"}
+        end  
     end
 
     def auto_login
