@@ -15,13 +15,12 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    user = User.create(user_params)
+    @user = User.create(user_params)
 
-    if user.valid? 
-      payload = {user_id: user.id}
+    if @user.valid? 
+      payload = {user_id: @user.id}
       token = encode_token(payload)
-      binding.pry
-      render json: {user: user, jwt: token} , status: :created, location: @user
+      render json: {user: @user, jwt: token} , status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
