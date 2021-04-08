@@ -13,10 +13,10 @@ class Playlist < ApplicationRecord
         {
             id: self.id,
             name: self.name, 
-            description: self.price,
+            description: self.description,
             user: {
                 id: self.user.id,
-                name: self.user.name
+                name: self.user.username
             }           
         }
     end 
