@@ -15,7 +15,7 @@ class Review < ApplicationRecord
             text: self.text,
             user: {
                 id: self.user.id,
-                name: self.user.username
+                username: self.user.username
             }           
         }
     end 

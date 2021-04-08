@@ -16,7 +16,7 @@ class Playlist < ApplicationRecord
             description: self.description,
             user: {
                 id: self.user.id,
-                name: self.user.username
+                username: self.user.username
             }           
         }
     end 

@@ -3,9 +3,9 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = Review.all
+    # @reviews = Review.all
 
-    render json: @reviews
+    render json: Review.array_to_json
   end
 
   # GET /reviews/1
