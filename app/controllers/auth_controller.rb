@@ -1,13 +1,7 @@
 class AuthController < ApplicationController
     before_action :require_login
 
-    def logged_in? 
-        !!session_user
-    end 
-
-    def require_login
-        render json: {message: "Please Login"}, status: :unauthorized unless logged_in? 
-    end 
+   
     
     def login
       user = User.find_by(username: params[:username])
@@ -26,6 +20,14 @@ class AuthController < ApplicationController
         else 
             render json: {errors: "No user is logged in. Make sure you're logged in."}
         end  
+    end 
+
+    def logged_in? 
+        !!session_user
+    end 
+
+    def require_login
+        render json: {message: "Please Login"}, status: :unauthorized unless logged_in? 
     end 
   
   

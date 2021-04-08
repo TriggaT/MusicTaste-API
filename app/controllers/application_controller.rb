@@ -4,6 +4,24 @@ class ApplicationController < ActionController::API
         JWT.encode(payload, ENV['MY_SECRET'])
     end 
 
+
+    def auth_header 
+        request.headers["Authorization"]
+    end 
+
+    def decoded_token
+        
+        if auth_header
+            token = auth_header.split(" ")[1]
+            begin 
+                binding.pry
+                JWT.decode(token, ENV['MY_SECRET'], true, algorithm: "HS256" )
+            rescue JWT::DecodeError
+                []
+            end 
+        end 
+    end 
+    
     def session_user
         decoded_hash = decoded_token
         if !decoded_hash.empty?
@@ -13,20 +31,5 @@ class ApplicationController < ActionController::API
             nil
         end 
     end 
-
-    def auth_header 
-        request.headers["Authorization"]
-    end 
-
-    def decoded_token
-        if auth_header
-            token = auth_header.split(" ")[1]
-            begin 
-                JWT.decode(token, ENV['MY_SECRET'], true, algorithm: "HS256" )
-            rescue JWT::DecodeError
-                []
-            end 
-        end 
-    end  
 
 end
