@@ -6,16 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Playlist.create(name: "Playlist 1", description: "Classics from 2010's")
-Playlist.create(name: "Playlist 2", description: "Classics from 2000's")
+User.create(username: "User 1", password: "123456")
+User.create(username: "User 2", password: "123456")
+
+Playlist.create(name: "Playlist 1", description: "Classics from 2010's", user_id: 1)
+Playlist.create(name: "Playlist 2", description: "Classics from 2000's", user_id: 2)
 
 Song.create(title: "Title 1", artist: "Artist 1", playlist_id: 1)
 Song.create(title: "Title 2", artist: "Artist 2", playlist_id: 1)
 Song.create(title: "Title 3", artist: "Artist 3", playlist_id: 2)
 Song.create(title: "Title 4", artist: "Artist 4", playlist_id: 2)
 
-Review.create(rating: "1", text: "Review 1", playlist_id: 1)
-Review.create(rating: "2", text: "Review 2", playlist_id: 1)
-Review.create(rating: "3", text: "Review 3", playlist_id: 2)
-Review.create(rating: "4", text: "Review 4", playlist_id: 2)
+Review.create(rating: "1", text: "Review 1", playlist_id: 1, user_id: 1)
+Review.create(rating: "2", text: "Review 2", playlist_id: 1, user_id: 2)
+Review.create(rating: "3", text: "Review 3", playlist_id: 2, user_id: 1)
+Review.create(rating: "4", text: "Review 4", playlist_id: 2, user_id: 2)
 
