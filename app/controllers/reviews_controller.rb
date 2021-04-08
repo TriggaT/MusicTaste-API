@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      render json: @review, status: :created, location: @review
+      render json: @review.instance_to_json, status: :created, location: @review
     else
       render json: @review.errors, status: :unprocessable_entity
     end
