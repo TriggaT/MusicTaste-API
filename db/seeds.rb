@@ -9,8 +9,10 @@
 User.create(username: "User 1", password: "123456")
 User.create(username: "User 2", password: "123456")
 
-Playlist.create(name: "Playlist 1", description: "Classics from 2010's", user_id: 1)
-Playlist.create(name: "Playlist 2", description: "Classics from 2000's", user_id: 2)
+Playlist.create(name: "90's Bangers", description: "Hits from 90's", user_id: 1)
+Playlist.create(name: "In My Feelings", description: "90's R&B", user_id: 2)
+Playlist.create(name: "Back in the 2010's", description: "Throwbacks from 2010's", user_id: 1)
+Playlist.create(name: "What you missed last year...", description: "Annually updated with hits from the last year", user_id: 2)
 
 Song.create(title: "Title 1", artist: "Artist 1", playlist_id: 1)
 Song.create(title: "Title 2", artist: "Artist 2", playlist_id: 1)
