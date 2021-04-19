@@ -8,6 +8,7 @@
 
 User.create(username: "User 1", password: "123456")
 User.create(username: "User 2", password: "123456")
+User.create(username: "User 3", password: "123456")
 
 Playlist.create(name: "90's Bangers", description: "Hits from 90's", user_id: 1)
 Playlist.create(name: "In My Feelings", description: "90's R&B", user_id: 2)
@@ -19,8 +20,8 @@ Song.create(title: "Title 2", artist: "Artist 2", playlist_id: 1)
 Song.create(title: "Title 3", artist: "Artist 3", playlist_id: 2)
 Song.create(title: "Title 4", artist: "Artist 4", playlist_id: 2)
 
-Review.create(rating: "1", text: "Review 1", playlist_id: 1, user_id: 1)
+Review.create(rating: "1", text: "Review 1", playlist_id: 1, user_id: 3)
 Review.create(rating: "2", text: "Review 2", playlist_id: 1, user_id: 2)
-Review.create(rating: "3", text: "Review 3", playlist_id: 2, user_id: 1)
+Review.create(rating: "3", text: "Review 3", playlist_id: 2, user_id: 3)
 Review.create(rating: "4", text: "Review 4", playlist_id: 2, user_id: 2)
 
