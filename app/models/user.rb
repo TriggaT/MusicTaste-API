@@ -12,12 +12,7 @@ class User < ApplicationRecord
     def instance_to_json
         {
             id: self.id,
-            name: self.name, 
-            description: self.description,
-            user: {
-                id: self.user.id,
-                name: self.user.username
-            }           
+            name: self.name              
         }
     end 
 end
