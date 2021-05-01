@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
     belongs_to :playlist
     belongs_to :user 
+    has_many :songs
 
     def self.array_to_json 
         self.all.map do |p|
