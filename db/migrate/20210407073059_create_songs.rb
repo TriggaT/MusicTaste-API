@@ -4,7 +4,6 @@ class CreateSongs < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :artist
       t.belongs_to :playlist, foreign_key: true 
-      t.belongs_to :review, foreign_key: true 
 
       t.timestamps
     end
